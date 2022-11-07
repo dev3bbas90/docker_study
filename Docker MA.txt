@@ -1,0 +1,53 @@
+docker images
+// List containers
+docker ps
+// show closed containers 
+docker ps -a
+
+docker container ls -a
+
+dockr pull dev3bbas/test-repo
+dockr pull library/test-repo
+
+// remove image from my local {image id} or {image name}
+docker rmi test-repo
+
+
+// remove container from my local {container id} or {container name}
+docker rm {id}
+
+// stop running container 
+docker stop {Image id} >> terminate take 10s
+docker kill {container id} >> close immediate
+
+
+// make container
+docker run test-repo
+docker run --name=rerer test-repo
+
+// run image in background
+docker run -d test-repo
+// return id of container
+
+// show container logs
+docker logs {id}
+
+
+// busybox >> just test environment
+docker run busybox
+docker run busybox ping localhost
+docker run -d busybox ping localhost
+
+// docker inspect >> return details & commands & ...
+docker inspect {image id} or {image name}
+
+
+// Fedora Linux OS
+docker run fedora
+
+docker images
+
+// delete image by its name (delete locally)
+docker image rm {repository / ID name ex: fedora}
+
+
