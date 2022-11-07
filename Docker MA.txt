@@ -1,3 +1,8 @@
+
+
+https://www.youtube.com/watch?v=mD3j0_AFmz0&list=PLX1bW_GeBRhDkTf_jbdvBbkHs2LCWVeXZ&index=10
+
+
 docker images
 // List containers
 docker ps
@@ -49,5 +54,98 @@ docker images
 
 // delete image by its name (delete locally)
 docker image rm {repository / ID name ex: fedora}
+
+// right sentence (base command)
+docker {parent EX: container / image / ..} { command EX: run / pull ...}
+
+// redis >> db light lib.
+docker container run redis
+docker container run redis:{tag default: latest}
+docker container run redis:alpine
+
+// exit CTR + P CTR + q
+
+docker logs {ID OR any unique part of id like : 800}
+
+// واخد رامات اد اي  cpu usage , memory , net  , ...
+docker stats {container ID}
+
+docker info
+
+// get container ip
+docker inspect -f='{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 800c
+-f (--format) 
+800c (container ID) 
+
+-d >> --detach
+
+-p >> --publish + 80:80 << port ( one of its exposed ports )
+--name << set name to container
+
+
+docker container run --detach --publish 80:80 --name testName nginx
+// and test in browser
+
+docker container stop testName
+docker container start testName
+
+
+// exposed ports distinct for each image
+
+>> open new terminal to container (bash)
+
+docker exec -it testName bash
+    >># service nginx status
+    >># service nginx reload
+    >># service nginx stop << exit container (close service & stop container)
+    
+    >># ls << list files & folders i this container 
+    >>#  ls { any sub folder inside ✔ }
+    >>#  nginx -T >> Config file info
+    >>#  cd  etc/nginx/...
+    >>#  cd .. >> backword
+    >>#  cd - >> backword
+    >>#  cd / >> root
+    >>#  cd >> tenda ~ dont list files
+
+    >>#  mkdir NewFolder  >> new folder
+    >>#  cd NewFolder
+    >>#  touch index.html >> new file
+    
+    >>#  cp {file/folder} {new folder}  
+    >>#  cp index.html contentFolder  
+    >>#  
+
+    >>#  rm index.html   << remove  file or folder
+    
+    >>#    
+    >>#  
+
+Docker Tags 
+    each image has many tags 
+    can pull image by tag
+    ex (7.1 7.2) >> default (latest)
+
+Image Layers
+    any change on image is considered a separate layer :  اي تغيير عليها يعتبر طبقة منفصلة 
+    EX  :
+    [
+        App     >> d12...
+        Appache >> 800c...
+        Ubunto  >> a4e...
+    ]
+
+Docker File 
+    all your commands saved in docker file
+    * Docker can build image automatically by reading instructions from docker file 
+    * الملف دا فيه كل الاوامر اللي محتاجينها لعمل image 
+    * contains all commands .
+    * docker client who read it
+
+>> In tags tab ther is Digest >> id that we deal with in power shell
+>> click any tag to see all commands that be run to arrive to this version
+
+
+
 
 
