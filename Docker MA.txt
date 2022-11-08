@@ -1,6 +1,6 @@
 
 
-https://www.youtube.com/watch?v=mD3j0_AFmz0&list=PLX1bW_GeBRhDkTf_jbdvBbkHs2LCWVeXZ&index=10
+https://www.youtube.com/watch?v=nINTOS2fhVY&list=PLX1bW_GeBRhDkTf_jbdvBbkHs2LCWVeXZ&index=12
 
 
 docker images
