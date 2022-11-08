@@ -142,10 +142,43 @@ Docker File
     * contains all commands .
     * docker client who read it
 
->> In tags tab ther is Digest >> id that we deal with in power shell
->> click any tag to see all commands that be run to arrive to this version
+* In tags tab ther is Digest >> id that we deal with in power shell
+* click any tag to see all commands that be run to arrive to this version
 
 
+
+>> docker history {Image Like: redis / nginx} >> show commands
+
+// create tag (copy of image)
+>> docker tag {USERNAME}/{IMAGE}
+>> dockre tag redis dev3bbas/myRedis >> latest
+>> dockre tag redis dev3bbas/myRedis:firstTag
+// all tags refere to same image id
+
+///////////////////// PUSH
+>> docker push dev3bbas/myRedis
+
+////////////////////////// LOGIN
+>> docker login 
+    then enter USERNAME & password
+
+>> docker logout
+
+// After i create dockerImage Folder then docker file
+
+>> docker build .
+>> docker image ls 
+>> docker container run {this image id  note: this image name now be <none>}
+>>  docker build --tag firstTag .            >> override past build with name firstTag with same ID
+>>  
+
+//    after any change we must build with same or different tag 
+//    if we are in different path and need to build
+
+>>  docker build --tag V1.0 c:/dockerImage
+
+>>  
+>>  
 
 
 
