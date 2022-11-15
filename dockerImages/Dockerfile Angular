@@ -1,0 +1,25 @@
+# first stage 
+FROM node:alpine3.14 as build
+
+
+# -p >> if folder found dont create
+RUN mkdir -p /app
+
+# Set the working directory for any subsequent ADD, COPY, CMD, ENTRYPOINT, or RUN instructions that follow it in the Dockerfile.
+WORKDIR /app
+
+COPY package.json /app/
+
+RUN npm install
+
+# copy all to app
+COPY . /app/
+
+RUN npm run build --prod
+
+# final stage 
+FROM nginx:alpine
+COPY --from=build /app/dist/helpdesk /user/share/nginx/html
+
+
+

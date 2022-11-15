@@ -1,6 +1,6 @@
 
 
-https://www.youtube.com/watch?v=nINTOS2fhVY&list=PLX1bW_GeBRhDkTf_jbdvBbkHs2LCWVeXZ&index=12
+https://www.youtube.com/watch?v=nINTOS2fhVY&list=PLX1bW_GeBRhDkTf_jbdvBbkHs2LCWVeXZ&index=23
 
 
 docker images
@@ -176,9 +176,22 @@ Docker File
 //    if we are in different path and need to build
 
 >>  docker build --tag V1.0 c:/dockerImage
+>>  docker run -d -p 4200:80 --name helpdesk helpdeskImageName
 
+
+// Network
+
+>>  docker network ls
+>>  docker network inspect {network : bridge}
+>>  docker network create --diver bridge n1
+
+// run container on network
+>>  docker run network=n1 -d -it Ubunto
+>>  docker network inspect n1
+
+
+// wsl >> windows subsystem for linux 
 >>  
 >>  
-
 
 
