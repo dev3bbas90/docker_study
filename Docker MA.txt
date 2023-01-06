@@ -2,6 +2,15 @@
 
 https://www.youtube.com/watch?v=nINTOS2fhVY&list=PLX1bW_GeBRhDkTf_jbdvBbkHs2LCWVeXZ&index=23
 
+docker run -d -p 80:80 docker/getting-started
+
+docker run postgress
+
+// e env variable
+docker run -e POSTGRES_PASSWORD=root -d postgres
+
+docker exec -it {container ID} {command Like : sh / ping localhost / ls}
+
 
 docker images
 // List containers
@@ -36,6 +45,11 @@ docker run -d test-repo
 
 // show container logs
 docker logs {id}
+docker logs -f {myImage}
+
+// remove past / old containers (not current working) نشيل الكونتينرس القديمة 
+
+docker system prune -a
 
 
 // busybox >> just test environment
@@ -194,4 +208,17 @@ Docker File
 >>  
 >>  
 
+build local image (ex laravel proj)
+>>  docker build --tag jsons_filter:v0.5 .
+// then run container with port
+>>  docker run -d -p 90:90 --name json_filter_proj jsons_filter:v0.5
+>>  docker-compose up --build
+>>  docker-compose up -d
+>>  docker-compose down
+>>  docker-compose start
+>>  docker-compose stop
+
+// list all containers
+>>  docker-compose ps 
+>>  
 
